@@ -8,16 +8,24 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { QrCodeServiceProvider } from '../providers/qr-code-service/qr-code-service';
+import { Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { AngularFireDatabase} from "angularfire2/database";
+
+import { AngularFireModule } from 'angularfire2';                                 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule                                                                                                                          
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,7 +36,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    BarcodeScanner,
+    AngularFireDatabase,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    QrCodeServiceProvider,
   ]
 })
 export class AppModule {}

@@ -1,5 +1,11 @@
 {
   "name": "qrcode",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://ualtpayment.ualink.lk/"
+    }  
+  ]
 }

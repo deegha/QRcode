@@ -8,11 +8,55 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+ 
+  <ion-grid>
+    <ion-row class="header">
+      <ion-col col-12>
+        <ion-header>
+          <h1>MARK ATTENDANCE</h1>
+        </ion-header>
+      </ion-col>
+    </ion-row> 
+    <ion-row *ngIf="emp_name">
+      <ion-col col-12>
+          <ion-card>
+            <ion-card-header class="emp-name">
+               {{emp_title}} {{emp_name}}
+            </ion-card-header>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+            <ion-card-content >
+              <ion-item *ngIf="emp_spouse" >
+                  <ion-label>
+                      Spouse
+                  </ion-label>
+                  <ion-checkbox red item-right  ="item.checked"
+                          (ionChange)="addSpouse($event)">
+                  </ion-checkbox>
+              </ion-item>
+         
+                <ion-item *ngFor="let item of emp_children">
+                    <ion-label>
+                        Child {{item}}
+                    </ion-label>
+                    <ion-checkbox red item-right  ="item.checked"
+                            (ionChange)="addChild($event)">
+                    </ion-checkbox>
+                </ion-item>
+          
+            </ion-card-content>
+            
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col col-12>
+            <button ion-button *ngIf="!emp_name" class="btn-scan" (click)="scan()" color="secondary">SCAN QRCODE</button>
+            <button ion-button *ngIf="emp_name" class="btn-scan" (click)="markAttendnce()">MARK ATTENDANCE</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>
