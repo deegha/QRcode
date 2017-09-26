@@ -35,7 +35,6 @@ export class HomePage {
 
     this.barcodeScanner.scan().then((barcodeData) => {
         let emp_no = barcodeData.text;
-        // let emp_no = "45899";
         this.qrCodeServiceProvider.sendEmpNo(emp_no).then((response) => {
           var children = [];
           let data = response.emp_details;  
