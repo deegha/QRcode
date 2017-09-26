@@ -30,7 +30,6 @@ export class QrCodeServiceProvider {
         'Content-Type' : 'application/json'
       });
       let options = new RequestOptions({ headers: headers });
-      console.log(attandance);
       return new Promise((resolve) => {
         this.http.post(this.api_url,attandance,options).map(res=>res.json())
         .subscribe(data=>{
