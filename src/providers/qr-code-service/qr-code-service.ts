@@ -37,11 +37,6 @@ export class QrCodeServiceProvider {
           resolve(data);
         });
       });
-
-      // let returndata = {"error" : false, "message": "successfully marked as attended"};
-      // return new Promise(resolve=>{
-      //   resolve(returndata);
-      // });
     }catch(err){
       return false;
     }
